@@ -1,0 +1,77 @@
+{
+    "name": "mongoose-filter-query",
+    "version": "1.0.0",
+    "description": "Middleware which implements a standardized format and maps an incoming http request's query params to a format which is supported by mongoose",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "rimraf ./dist && npx babel src --out-dir dist",
+        "bump-version": "yarn --cwd ./node_modules/automatic-versioning/ run bump-version --name=mongoose-filter-query",
+        "test": "npm run cov:clean && npm run cov:unit",
+        "cov:clean": "rimraf .nyc_output; rimraf coverage; rimraf test-results",
+        "cov:unit": "jest --coverage --forceExit --colors"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sliit-foss/mongoose-filter-query.git"
+    },
+    "keywords": [
+        "filterquery",
+        "sortquery",
+        "filter",
+        "sort"
+    ],
+    "author": "SLIIT FOSS",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/sliit-foss/mongoose-filter-query/issues"
+    },
+    "homepage": "https://github.com/sliit-foss/mongoose-filter-query#readme",
+    "devDependencies": {
+        "@babel/cli": "^7.17.10",
+        "@babel/core": "^7.18.2",
+        "@babel/preset-env": "^7.18.2",
+        "@commitlint/cli": "^17.0.1",
+        "@commitlint/config-conventional": "^17.0.0",
+        "automatic-versioning": "^1.4.9",
+        "husky": "^4.3.8",
+        "jest": "^27.5.1"
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+            "post-commit": "HUSKY_SKIP_HOOKS=1 yarn bump-version"
+        }
+    },
+    "commitlint": {
+        "extends": [
+            "@commitlint/config-conventional"
+        ],
+        "rules": {
+            "type-enum": [
+                2,
+                "always",
+                [
+                    "Feat!",
+                    "Feat",
+                    "Fix",
+                    "Build",
+                    "Refactor",
+				    "Revert",
+                    "CI",
+                    "Test",
+                    "Docs"
+                ]
+            ],
+            "type-case": [
+                0,
+                "always",
+                "pascal-case"
+            ],
+            "subject-case": [
+                0,
+                "always",
+                "pascal-case"
+            ]
+        }
+    }
+}

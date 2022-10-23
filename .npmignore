@@ -1,0 +1,7 @@
+.github/
+.commitlintrc.json
+commitlint.config.js
+.babelrc
+jest.config.js
+src/
+test/
