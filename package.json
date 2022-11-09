@@ -1,6 +1,6 @@
 {
     "name": "mongoose-filter-query",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Middleware which implements a standardized format and maps an incoming http request's query params to a format which is supported by mongoose",
     "main": "dist/index.js",
     "scripts": {
@@ -56,7 +56,7 @@
                     "Fix",
                     "Build",
                     "Refactor",
-				    "Revert",
+                    "Revert",
                     "CI",
                     "Test",
                     "Docs"
