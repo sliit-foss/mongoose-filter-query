@@ -14,7 +14,7 @@ yarn add mongoose-filter-query
 ## Usage
 
 ```js
-const mongooseFilterQuery = require("mongoose-filter-query");
+const { default: mongooseFilterQuery } = require("mongoose-filter-query");
 
 // or
 
@@ -25,7 +25,7 @@ import mongooseFilterQuery from "mongoose-filter-query";
 
 // in your express app
 
-app.use(mongooseFilterQuery());
+app.use(mongooseFilterQuery);
 
 
 // while invoking your database query
