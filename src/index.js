@@ -16,6 +16,8 @@ const mongooseFilterQuery = (req, res, next) => {
           req.query.filter[key] = mapValue(value);
         }
       })
+    } else {
+      req.query.filter = {};
     }
     if (req.query.sort) {
       Object.keys(req.query.sort).forEach((key) => {
@@ -24,6 +26,8 @@ const mongooseFilterQuery = (req, res, next) => {
           req.query.sort[key] = parseInt(dir)
         }
       })
+    } else {
+      req.query.sort = {};
     }
   } catch (e) {
     console.error('[ Mongoose-FilterQuery ] - Failed to parse filters from query', e)

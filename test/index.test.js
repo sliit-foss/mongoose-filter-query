@@ -11,9 +11,17 @@ describe("test mongoose-filter-query", () => {
         mongooseFilterQuery(complexFilterReq, {}, () => { });
         expect(complexFilterReq.query.filter).toEqual(complexFilterResult);
     });
-    test("test-sortsReq", async () => {
+    test("test-filter-req - no filters specified", async () => {
+        mongooseFilterQuery(sortsReq, {}, () => { });
+        expect(sortsReq.query.filter).toEqual({});
+    });
+    test("test-sorts-req", async () => {
         mongooseFilterQuery(sortsReq, {}, () => { });
         expect(sortsReq.query.sort).toEqual(sortResult);
+    });
+    test("test-sorts-req - no sorts specified", async () => {
+        mongooseFilterQuery(req, {}, () => { });
+        expect(req.query.sort).toEqual({});
     });
     test("handle-error", async () => {
         jest.spyOn(utils, 'mapValue').mockImplementation(() => {
